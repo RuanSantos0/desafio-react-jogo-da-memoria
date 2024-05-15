@@ -113,7 +113,7 @@ body {
 
 }
 
-.carta:hover .carta__conteudo{
+.carta--virada .carta__conteudo{
   transform: rotateY(180deg);
 }
 

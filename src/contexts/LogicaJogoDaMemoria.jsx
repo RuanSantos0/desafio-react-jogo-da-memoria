@@ -5,7 +5,7 @@ export const LogicaJogoDaMemoriaContext = createContext()
 export const LogicaJogoDaMemoriaProvider = ({children}) => {
   const [cartas, definirCartas] = useState([])
   const [idsDosParesEncontrados, definirIdsDosParesEncontrados] = useState([])
-  const [idsDasCartasViradas, definirIdsDasCartasViradas] = useState([])
+  const [idsDasCartasViradas, definirIdDasCartasViradas] = useState([])
 
   const [quantidadeDeCartasViradas, definirQuantidadeDeCartasViradas] = useState(0)
   const [quantidadeDePontos, definirQuantidadeDePontos] = useState(0)
@@ -16,6 +16,7 @@ export const LogicaJogoDaMemoriaProvider = ({children}) => {
 
   const virarCarta = ({id, idDoPar}) => {
     incrementarQuantidadeDeCartasViradas()
+    definirIdDasCartasViradas((ids) => [...ids, id])
   }
 
   const valor = {
@@ -24,6 +25,7 @@ export const LogicaJogoDaMemoriaProvider = ({children}) => {
     quantidadeDePontos,
     virarCarta,
     
+    idsDasCartasViradas,
   }
 
   return(
