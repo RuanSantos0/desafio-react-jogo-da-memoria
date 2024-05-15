@@ -1,6 +1,7 @@
 import { paresDeCartas } from "../constants/cartas"
 import { Carta } from "./Carta"
 import { Placar } from "./Placar"
+import { Resultado } from "./Resultado"
 
 export const JogoDaMemoria = () => {
   return(
@@ -12,7 +13,7 @@ export const JogoDaMemoria = () => {
           {paresDeCartas.map((carta) => <Carta key={carta.id} {...carta} />)}
         </div>
       </div>
-      
+      <Resultado />
     </div>
   )
 }
