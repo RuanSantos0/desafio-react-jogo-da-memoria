@@ -1,7 +1,13 @@
+import classNames from "classname";
+
 export const Resultado = () => {
+  const cn = classNames("resultado", {
+    "resultado--aberto": false
+  })
+
   return (
-    <div className="resultado">
-      <div className="resultado__box">
+    <div className={cn}>
+      <div className="resultado__caixa">
         <p>Seu nível é memória é:</p>
         <h1>Bom</h1>
         <img
