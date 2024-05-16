@@ -1,10 +1,11 @@
 import classNames from "classname";
+import { useMemo } from "react";
 import { useJogoDaMemoria } from "../hooks/useJogoDaMemoria";
 import { resultados } from "../constants/resultados";
 
 export const Resultado = () => {
 
-  const {quantidadeDeCartasViradas, idsDosParesEncontrados, cartas} = useJogoDaMemoria()
+  const {quantidadeDeCartasViradas, idsDosParesEncontrados, cartas, reiniciarJogo} = useJogoDaMemoria()
 
   const jogoFinalizou = cartas.length === idsDosParesEncontrados.length * 2
 
@@ -31,7 +32,7 @@ export const Resultado = () => {
           <strong>Taxa de acerto: </strong>
           <span>{taxaDeAcertos.toFixed(0)}%</span>
         </p>
-        <button className="button">Nova Partida</button>
+        <button className="button" onClick={reiniciarJogo}>Nova Partida</button>
         <p>
           <small>* Essa análise é ilustrativa e não possui base científica *</small>
         </p>

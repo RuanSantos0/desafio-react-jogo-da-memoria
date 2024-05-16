@@ -20,6 +20,13 @@ export const LogicaJogoDaMemoriaProvider = ({children}) => {
     definirCartas(paresDeCartas)
   }
 
+  const reiniciarJogo = () => {
+    definirIdsDosParesEncontrados([])
+    definirIdDasCartasViradas([])
+    definirCartas(paresDeCartas)
+    definirQuantidadeDeCartasViradas(0)
+  }
+
   const virarCarta = ({id, idDoPar}) => {
     incrementarQuantidadeDeCartasViradas()
 
@@ -65,6 +72,7 @@ export const LogicaJogoDaMemoriaProvider = ({children}) => {
     quantidadeDePontos,
 
     iniciarJogo,
+    reiniciarJogo,
     virarCarta,
 
     idsDasCartasViradas,
