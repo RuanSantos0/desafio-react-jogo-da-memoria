@@ -1,8 +1,14 @@
 import classNames from "classname";
+import { useJogoDaMemoria } from "../hooks/useJogoDaMemoria";
 
 export const Resultado = () => {
+
+  const {idsDosParesEncontrados, cartas} = useJogoDaMemoria()
+
+  const jogoFinalizou = cartas.length === idsDosParesEncontrados.length * 2
+
   const cn = classNames("resultado", {
-    "resultado--aberto": false
+    "resultado--aberto": jogoFinalizou
   })
 
   return (
