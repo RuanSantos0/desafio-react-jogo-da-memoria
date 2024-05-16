@@ -1,5 +1,6 @@
 import { createContext, useState } from "react";
 import { paresDeCartas } from "../constants/cartas"
+import { PONTOS, TEMPO_MS } from "../constants/configurações";
 
 export const LogicaJogoDaMemoriaContext = createContext()
 
@@ -23,7 +24,7 @@ export const LogicaJogoDaMemoriaProvider = ({children}) => {
     incrementarQuantidadeDeCartasViradas()
 
     const incrementarPontos = () => {
-      definirQuantidadeDePontos(pontos => pontos + 5);
+      definirQuantidadeDePontos(pontos => pontos + PONTOS.ENCONTRAR_CARTA);
     }
 
   
@@ -52,7 +53,7 @@ export const LogicaJogoDaMemoriaProvider = ({children}) => {
       definirIdsDosParesEncontrados((ids) => [...ids, idDoPar])
     }
 
-    const tempo = cartasIguais ? 0 : 2000;
+    const tempo = cartasIguais ? 0 : TEMPO_MS.VIRAR_CARTAS;
     setTimeout(() => {
       definirIdDasCartasViradas([])
     }, tempo)
